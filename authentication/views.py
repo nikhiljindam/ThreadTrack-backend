@@ -26,7 +26,7 @@ class Login(TokenObtainPairView):
                 return Response(status=status.HTTP_400_BAD_REQUEST)
 
             vendor_details = fetch_vendor_details_by_user(user)
-            serializer = ReadUserVendor(data=vendor_details)
+            serializer = ReadUserVendor(data=vendor_details, many=True)
             serializer.is_valid(raise_exception=True)
 
             data = {

@@ -3,7 +3,7 @@ from .models import *
 
 models = [Vendor, UserVendorMap]
 
-MySpecialAdmin = lambda model: type('SubClass'+model._name_, (admin.ModelAdmin,), {
+MySpecialAdmin = lambda model: type('SubClass'+model.__name__, (admin.ModelAdmin,), {
     'list_display': [x.name for x in model._meta.fields],
 })
 
